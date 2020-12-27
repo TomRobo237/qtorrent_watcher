@@ -1,0 +1,15 @@
+[Unit]
+Description=qbittorrent watcher and cleaner up afterer
+
+[Service]
+User=root
+WorkingDirectory=/opt/torrent_watcher
+Environment="PATH=/opt/torrent_watcher/venv/bin"
+ExecStart=/opt/torrent_watcher/watcher.py -x -c 604800 -i 1209600 -r 10.0 -l /var/log/torrent_watcher.log 
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=torrent_watcher
+After=qbittorrent-nox.service
+
+[Install]
+WantedBy=multi-user.target

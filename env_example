@@ -1,0 +1,4 @@
+USERNAME='admin'
+HOST='localhost'
+PASSWORD='adminadmin'
+PORT='8080'
